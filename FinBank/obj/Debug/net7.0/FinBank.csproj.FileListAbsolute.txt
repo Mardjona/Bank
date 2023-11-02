@@ -1,0 +1,15 @@
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/FinBank.csproj.AssemblyReference.cache
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/FinBank.GeneratedMSBuildEditorConfig.editorconfig
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/FinBank.AssemblyInfoInputs.cache
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/FinBank.AssemblyInfo.cs
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/FinBank.csproj.CoreCompileInputs.cache
+/Users/admin/Projects/FinBank/FinBank/bin/Debug/net7.0/FinBank
+/Users/admin/Projects/FinBank/FinBank/bin/Debug/net7.0/FinBank.deps.json
+/Users/admin/Projects/FinBank/FinBank/bin/Debug/net7.0/FinBank.runtimeconfig.json
+/Users/admin/Projects/FinBank/FinBank/bin/Debug/net7.0/FinBank.dll
+/Users/admin/Projects/FinBank/FinBank/bin/Debug/net7.0/FinBank.pdb
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/FinBank.dll
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/refint/FinBank.dll
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/FinBank.pdb
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/FinBank.genruntimeconfig.cache
+/Users/admin/Projects/FinBank/FinBank/obj/Debug/net7.0/ref/FinBank.dll
