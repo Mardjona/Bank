@@ -73,9 +73,9 @@
     }
     public void Print()
     {
-        while (true)
+        
         {
-            Out();
+            
             Console.WriteLine("Выберите операцию для выполнения:\n1 - Внести деньги\t2 - Снять деньги\t3 - Снять всю сумму\t4 - перевести деньги на другой счет\t5 - Выход");
             int a = Convert.ToInt32(Console.ReadLine());
 
