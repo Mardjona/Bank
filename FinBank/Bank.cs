@@ -24,10 +24,18 @@
     // метод чтоб снять деньги со счета
     public void umen()
     {
-        Console.Write("Сколько рублей хотите снять?");
+       Console.Write("Сколько рублей хотите снять?");
         int a = Convert.ToInt32(Console.ReadLine());
-        sum -= a;
-        Console.WriteLine($"Снято {a} рублей.На балансе {sum} рублей");
+        if (a <= sum)
+        {
+            sum -= a;
+            Console.WriteLine($"Снято {a} рублей.На балансе {sum} рублей");
+        }
+        else if (a > sum)
+        {
+            Console.WriteLine("Недостаточно средств. Повторите действие!");
+            umen();
+        }
     }
 
     // метод чтоб снять все деньги со счета 
