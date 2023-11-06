@@ -3,16 +3,13 @@ class Bank
     private int nom;
     private string name;
     private float sum;
-    public List<Bank> list;
-    public Bank(string n) { nom = 1; name = n; sum = 1000f; } // конструктор 1
-    public Bank(string n, float s) { nom = 2; name = n; sum = s; } // конструктор 2
     public Bank(int id, string n, float s) { nom = id; name = n; sum = s; } // конструктор 3
 
     //открытие счета
     public void Out()
     {
-         Console.WriteLine($"Номер вашего счета: {nom}\tВаше имя: {name}\t Cумма на счете: {sum}");
-     }
+        Console.WriteLine($"Номер вашего счета: {nom}\tВаше имя: {name}\t Cумма на счете: {sum}");
+    }
 
     // метод чтоб положить деньги на счет
     public void dob()
@@ -28,7 +25,7 @@ class Bank
     {
         Console.Write("Сколько рублей хотите снять?");
         int a = Convert.ToInt32(Console.ReadLine());
-        if (a <= sum) 
+        if (a <= sum)
         {
             sum -= a;
             Console.WriteLine($"Снято {a} рублей.На балансе {sum} рублей");
@@ -48,7 +45,7 @@ class Bank
     }
 
     // метод перевода с одного счета на другой 
-    public void Transaction()
+    public void Transaction(List<Bank> banks)
     {
         Console.WriteLine("Укажите на какой счет хотите перевести деньги?");
         int i = Convert.ToInt32(Console.ReadLine());
@@ -56,40 +53,35 @@ class Bank
         Console.WriteLine("Сколько хотите перевести?");
         int r = Convert.ToInt32(Console.ReadLine());
         sum -= r;                              // вычитается сумма с заданного счета
-       
-        Searh(i, list).sum += r;               // прибавляется сумма в выбранный счет
-       
+
+        Searh(i, banks).sum += r;               // прибавляется сумма в выбранный счет
+
     }
 
     // перебор счетов
     private Bank Searh(int nom, List<Bank> bank)
     {
-
         foreach (Bank b in bank)
         {
             if (nom == b.nom)
             {
                 Console.WriteLine($"Перевод успешно выполнен! На вешем счету {sum}");
                 return b;
-                
             }
-            
         }
-
         Console.WriteLine("Счет не найден.Повторите действие");
-        Print();
+        Print(bank);
         return null;
-       
     }
 
     // метод для возврата методов, опираясь на выбор клиента
-    public void Print()
+    public void Print(List<Bank> banks)
     {
+        while (true)
         {
             Out();
             Console.WriteLine("Выберите операцию для выполнения:\n1 - Внести деньги\t2 - Снять деньги\t3 - Снять всю сумму\t4 - перевести деньги на другой счет\t5 - Выход");
             int a = Convert.ToInt32(Console.ReadLine());
-
             if (a == 1)
             {
                 dob();
@@ -104,7 +96,7 @@ class Bank
             }
             else if (a == 4)
             {
-                Transaction();
+                Transaction(banks);
             }
             else if (a == 5)
             {
@@ -113,9 +105,9 @@ class Bank
             else
             {
                 Console.WriteLine("Ошибка выбора");
-                Print();
+                Print(banks);
             }
-             Console.WriteLine("-----------------------------Следующий---------------------");
+            Console.WriteLine("-----------------------------Следующий---------------------");
         }
     }
 }
