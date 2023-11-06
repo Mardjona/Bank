@@ -3,7 +3,7 @@ class Bank
     private int nom;
     private string name;
     private float sum;
-    public Bank(int id, string n, float s) { nom = id; name = n; sum = s; } // конструктор 3
+    public Bank(int id, string n, float s) { nom = id; name = n; sum = s; } // конструктор 1
 
     //открытие счета
     public void Out()
