@@ -1,18 +1,37 @@
 class Bank
 {
-    private int nom;
-    private string name;
-    private float sum;
-    public Bank(int id, string n, float s) { nom = id; name = n; sum = s; } // конструктор 1
-
-    //открытие счета
-    public void Out()
+    int nomer;  //Номер счета
+    string name; //Имя владельца
+    float sum;    // сумма
+    
+    public int Nomer
     {
-        Console.WriteLine($"Номер вашего счета: {nom}\tВаше имя: {name}\t Cумма на счете: {sum}");
+        get { return nomer; }
+    }
+    
+    // метод ввода информации
+    public void Info ()
+    {
+        
+            nomer = nomer;
+            name = name;
+            sum = sum;
+            Console.WriteLine("\nВведите ваше имя");
+            name = Console.ReadLine();
+            Console.WriteLine("Введите номер счета");
+            nomer = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Счет успешно создан!");
+        }
+    
+    // метод вывода информации
+     void Out()
+    {
+        Console.WriteLine($"\nНомер вашего счета: {nomer}\tВаше имя: {name}\t Cумма на счете: {sum}");
     }
 
     // метод чтоб положить деньги на счет
-    public void dob()
+    
+     void dob()
     {
         Console.Write("Сколько рублей хотите внести? ");
         int a = Convert.ToInt32(Console.ReadLine());
@@ -21,7 +40,7 @@ class Bank
     }
 
     // метод чтоб снять деньги со счета
-    public void umen()
+     void umen()
     {
         Console.Write("Сколько рублей хотите снять?");
         int a = Convert.ToInt32(Console.ReadLine());
@@ -38,23 +57,32 @@ class Bank
     }
 
     // метод чтоб снять все деньги со счета 
-    public void obnul()
+     void obnul()
     {
         sum = 0;
         Console.WriteLine($"Вы сняли все деньги. На счету {sum}");
     }
 
     // метод перевода с одного счета на другой 
-    public void Transaction(List<Bank> banks)
+     void Transaction(List<Bank> banks)
     {
-        Console.WriteLine("Укажите на какой счет хотите перевести деньги?");
+        Console.WriteLine("Укажите на какой счет хотите перевести деньги");
         int i = Convert.ToInt32(Console.ReadLine());
 
         Console.WriteLine("Сколько хотите перевести?");
         int r = Convert.ToInt32(Console.ReadLine());
-        sum -= r;                              // вычитается сумма с заданного счета
+        if(sum > r)
+        { sum -= r;
+            Searh(i, banks).sum += r;
+        }
+        else
+        {
+            Console.WriteLine("Недостаточно средств, пополните баланс");
+            Print(banks);
+        }
+        //sum -= r;                              // вычитается сумма с заданного счета
 
-        Searh(i, banks).sum += r;               // прибавляется сумма в выбранный счет
+        //Searh(i, banks).sum += r;               // прибавляется сумма в выбранный счет
 
     }
 
@@ -63,7 +91,7 @@ class Bank
     {
         foreach (Bank b in bank)
         {
-            if (nom == b.nom)
+            if (nom == b.nomer)
             {
                 Console.WriteLine($"Перевод успешно выполнен! На вешем счету {sum}");
                 return b;
@@ -77,11 +105,16 @@ class Bank
     // метод для возврата методов, опираясь на выбор клиента
     public void Print(List<Bank> banks)
     {
+        
+      
         while (true)
         {
-            Out();
-            Console.WriteLine("Выберите операцию для выполнения:\n1 - Внести деньги\t2 - Снять деньги\t3 - Снять всю сумму\t4 - перевести деньги на другой счет\t5 - Выход");
+            
+            Out(); 
+
+             Console.WriteLine($"Выберите операцию для выполнения: \n1 - Внести деньги\t2 - Снять деньги\t3 - Снять всю сумму\t4 - перевести деньги на другой счет\t5 - Выход");
             int a = Convert.ToInt32(Console.ReadLine());
+            
             if (a == 1)
             {
                 dob();
@@ -107,8 +140,9 @@ class Bank
                 Console.WriteLine("Ошибка выбора");
                 Print(banks);
             }
-            Console.WriteLine("-----------------------------Следующий---------------------");
+            Console.WriteLine("-------------------------------------------------");
         }
     }
 }
+
 
